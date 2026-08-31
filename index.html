@@ -16,15 +16,73 @@
             background-color: #0b132b;
             color: #ffffff;
             line-height: 1.6;
+            position: relative;
         }
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
+        
+        /* Zászlós Nyelvválasztó Menü */
+        .lang-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .lang-btn {
+            background: #1c2541;
+            color: #ffffff;
+            border: 1px solid #48cae4;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .flag-icon {
+            width: 22px;
+            height: 16px;
+            border-radius: 2px;
+            object-fit: cover;
+            display: inline-block;
+        }
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 110%;
+            background: #1c2541;
+            border: 1px solid #48cae4;
+            border-radius: 8px;
+            min-width: 170px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .lang-dropdown.show {
+            display: block;
+        }
+        .lang-option {
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+        .lang-option:hover {
+            background: #25325c;
+        }
+
         header {
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 50px 0 20px;
         }
         .badge {
             background: #1c2541;
@@ -90,17 +148,41 @@
             color: #48cae4;
             font-weight: 600;
         }
-        .bank-details {
+        
+        /* Utalási blokkok */
+        .bank-box {
             background: #0b132b;
             padding: 20px;
-            border-radius: 8px;
-            margin-top: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
             text-align: left;
             border-left: 4px solid #00b4d8;
+            margin-top: 15px;
         }
-        .bank-details p {
-            margin-bottom: 8px;
+        .bank-info {
+            flex: 1;
+            min-width: 240px;
         }
+        .bank-info p {
+            margin-bottom: 6px;
+        }
+        .qr-info {
+            text-align: center;
+            min-width: 140px;
+            margin: 0 auto;
+        }
+        .qr-code {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+            border: 3px solid #ffffff;
+            margin-top: 5px;
+        }
+        
         .btn {
             display: inline-block;
             padding: 14px 28px;
@@ -111,7 +193,7 @@
             background: #ff0000;
             color: #ffffff;
             transition: transform 0.2s;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         .btn:hover {
             transform: translateY(-2px);
@@ -126,65 +208,421 @@
 </head>
 <body>
 
+<div class="lang-container">
+    <button class="lang-btn" id="langBtn" onclick="toggleDropdown()">
+        <img src="https://flagcdn.com/w40/hu.png" class="flag-icon" id="currentFlag" alt="Zászló">
+        <span id="currentLangText">Magyar</span> ▾
+    </button>
+    <div class="lang-dropdown" id="langDropdown">
+        <div class="lang-option" onclick="selectLang('hu', 'Magyar', 'hu')">
+            <img src="https://flagcdn.com/w40/hu.png" class="flag-icon" alt="Magyar"> Magyar
+        </div>
+        <div class="lang-option" onclick="selectLang('en', 'English', 'gb')">
+            <img src="https://flagcdn.com/w40/gb.png" class="flag-icon" alt="English"> English
+        </div>
+        <div class="lang-option" onclick="selectLang('de', 'Deutsch', 'de')">
+            <img src="https://flagcdn.com/w40/de.png" class="flag-icon" alt="Deutsch"> Deutsch
+        </div>
+        <div class="lang-option" onclick="selectLang('fr', 'Français', 'fr')">
+            <img src="https://flagcdn.com/w40/fr.png" class="flag-icon" alt="Français"> Français
+        </div>
+        <div class="lang-option" onclick="selectLang('it', 'Italiano', 'it')">
+            <img src="https://flagcdn.com/w40/it.png" class="flag-icon" alt="Italiano"> Italiano
+        </div>
+        <div class="lang-option" onclick="selectLang('es', 'Español', 'es')">
+            <img src="https://flagcdn.com/w40/es.png" class="flag-icon" alt="Español"> Español
+        </div>
+        <div class="lang-option" onclick="selectLang('sv', 'Svenska', 'se')">
+            <img src="https://flagcdn.com/w40/se.png" class="flag-icon" alt="Svenska"> Svenska
+        </div>
+        <div class="lang-option" onclick="selectLang('no', 'Norsk', 'no')">
+            <img src="https://flagcdn.com/w40/no.png" class="flag-icon" alt="Norsk"> Norsk
+        </div>
+        <div class="lang-option" onclick="selectLang('pl', 'Polski', 'pl')">
+            <img src="https://flagcdn.com/w40/pl.png" class="flag-icon" alt="Polski"> Polski
+        </div>
+        <div class="lang-option" onclick="selectLang('zh', '中文', 'cn')">
+            <img src="https://flagcdn.com/w40/cn.png" class="flag-icon" alt="中文"> 中文
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <header>
-        <a href="https://www.youtube.com/@airplanefans" target="_blank" class="badge">✈️ Airplane Fans YouTube Csatorna</a>
-        <h1>Segíts valóra váltani a repülős álmomat!</h1>
-        <p class="subtitle">14 éves vagyok. A célom a PPL kisgép-pilóta szakszolgálati engedély megszerzése, és egy napon egy Airbus A350-es utasszállító vezetése!</p>
+        <a href="https://www.youtube.com/@airplanefans" target="_blank" class="badge" id="ytBadge">✈️ Airplane Fans YouTube Csatorna</a>
+        <h1 id="headerTitle">Segíts valóra váltani a repülős álmomat!</h1>
+        <p class="subtitle" id="headerSubtitle">14 éves vagyok. A célom a PPL kisgép-pilóta szakszolgálati engedély megszerzése, és egy napon egy Airbus A350-es utasszállító vezetése!</p>
     </header>
 
-    <!-- Mérföldkő számláló -->
     <div class="card">
         <div class="progress-title">
-            <span>Cél: PPL Motoros Kisgép Tanfolyam (45 óra + Elmélet)</span>
+            <span id="goalTitle">Cél: PPL Motoros Kisgép Tanfolyam (45 óra + Elmélet)</span>
             <span>0% (0 Ft / 4 500 000 Ft)</span>
         </div>
         <div class="progress-bar-bg">
             <div class="progress-bar-fill"></div>
         </div>
-        <p style="font-size: 0.85rem; color: #94a3b8;">Következő mérföldkő: Az elméleti vizsgák és az első repült órák díja.</p>
+        <p style="font-size: 0.85rem; color: #94a3b8;" id="goalSub">Következő mérföldkő: Az elméleti vizsgák és az első repült órák díja.</p>
     </div>
 
-    <!-- Történeted -->
     <div class="card">
-        <h2 style="margin-bottom: 15px; color: #48cae4;">A Történetem & Az Álmom</h2>
-        <p class="story-text">
+        <h2 style="margin-bottom: 15px; color: #48cae4;" id="storyHeading">A Történetem & Az Álmom</h2>
+        <p class="story-text" id="storyP1">
             Sziasztok! 14 éves vagyok, és a repülés a mindenem. A legnagyobb álmom, hogy egy napon egy <span class="highlight">Airbus A350-es óriásgép</span> pilótafülkéjében ülhessek kereskedelmi pilótaként.
         </p>
-        <p class="story-text">
+        <p class="story-text" id="storyP2">
             Az ehhez vezető út első komoly lépése a <span class="highlight">PPL (Private Pilot License) kisgépes pilótavizsga</span> megszerzése. Ennek a teljes költsége (üzemanyag, oktatói díj, repült órák, hatósági vizsgák) kb. <strong>4 500 000 Ft</strong>.
         </p>
-        <p class="story-text">
+        <p class="story-text" id="storyP3">
             A 0-ról indulok el, és a YouTube-on az <strong>Airplane Fans</strong> csatornán minden egyes felkészülést, tanulást és mérföldkövet megosztok veletek!
         </p>
     </div>
 
-    <!-- Támogatás rész -->
     <div class="card" style="text-align: center;">
-        <h2 style="color: #48cae4;">Így támogathatod a pilótaképzésemet</h2>
-        <p style="color: #94a3b8; margin-top: 5px;">Minden apró támogatás közelebb visz az első éles felszálláshoz!</p>
+        <h2 style="color: #48cae4;" id="supportHeading">Így támogathatod a pilótaképzésemet</h2>
+        <p style="color: #94a3b8; margin-top: 5px;" id="supportSub">Minden apró támogatás közelebb visz az első éles felszálláshoz!</p>
         
-        <div class="bank-details">
-            <p style="color: #48cae4; font-weight: 600;">🇭🇺 Magyarországi utaláshoz:</p>
-            <p>🔹 <strong>Név:</strong> [A te neved]</p>
-            <p>🔹 <strong>Számlaszám / IBAN:</strong> [Ide írd a HU... számlaszámodat]</p>
-            <p>🔹 <strong>Közlemény:</strong> Airplane Fans támogatás</p>
-            
-            <hr style="border: 0; border-top: 1px solid #1c2541; margin: 15px 0;">
-            
-            <p style="color: #48cae4; font-weight: 600;">🌍 Külföldi (SEPA / International) utaláshoz:</p>
-            <p>🔹 <strong>IBAN:</strong> [Ide írd a HU... számlaszámodat]</p>
-            <p>🔹 <strong>BIC / SWIFT kód:</strong> [Ide írd a Revolut SWIFT kódját, pl. REVOHU21XXX]</p>
-            <p>🔹 <strong>Bank neve:</strong> Revolut Bank UAB</p>
+        <div class="bank-box">
+            <div class="bank-info">
+                <h3 style="color: #48cae4; font-size: 1.1rem; margin-bottom: 10px;" id="localHeading">Belföldi (Magyar) Utalás</h3>
+                <p><span id="nameLabel1">🔹 <strong>Név:</strong></span> [A te neved]</p>
+                <p><span id="accLabel1">🔹 <strong>Számlaszám:</strong></span> [Ide írd a 24 jegyű számlaszámodat HU nélkül]</p>
+                <p><span id="msgLabel1">🔹 <strong>Közlemény:</strong></span> Airplane Fans támogatás</p>
+            </div>
+            <div class="qr-info">
+                <p style="font-size: 0.8rem; color: #48cae4; font-weight: 600;" id="qrLocalLabel">Magyar banki QR</p>
+                <img src="qr-belfold.png" alt="Belföldi QR" class="qr-code">
+            </div>
         </div>
 
-        <a href="https://www.youtube.com/@airplanefans" target="_blank" class="btn">▶️ Kövesd az Airplane Fans csatornát!</a>
+        <div class="bank-box">
+            <div class="bank-info">
+                <h3 style="color: #48cae4; font-size: 1.1rem; margin-bottom: 10px;" id="intlHeading">Nemzetközi / Revolut Utalás</h3>
+                <p><span id="nameLabel2">🔹 <strong>Név:</strong></span> [A te neved]</p>
+                <p>🔹 <strong>IBAN:</strong> [Ide írd a HU... számlaszámodat]</p>
+                <p>🔹 <strong>SWIFT / BIC:</strong> REVOHU21XXX</p>
+                <p><span id="bankLabel">🔹 <strong>Bank:</strong></span> Revolut Bank UAB</p>
+            </div>
+            <div class="qr-info">
+                <p style="font-size: 0.8rem; color: #48cae4; font-weight: 600;" id="qrIntlLabel">Nemzetközi QR</p>
+                <img src="qr-kulfold.png" alt="Külföldi QR" class="qr-code">
+            </div>
+        </div>
+
+        <a href="https://www.youtube.com/@airplanefans" target="_blank" class="btn" id="ytBtn">▶️ Kövesd az Airplane Fans csatornát!</a>
     </div>
 
     <footer>
-        <p>© 2026 Airplane Fans. Minden jog fenntartva.</p>
+        <p id="footerText">© 2026 Airplane Fans. Minden jog fenntartva.</p>
     </footer>
 </div>
+
+<script>
+const langDetails = {
+    hu: { name: 'Magyar', flag: 'hu' },
+    en: { name: 'English', flag: 'gb' },
+    de: { name: 'Deutsch', flag: 'de' },
+    fr: { name: 'Français', flag: 'fr' },
+    it: { name: 'Italiano', flag: 'it' },
+    es: { name: 'Español', flag: 'es' },
+    sv: { name: 'Svenska', flag: 'se' },
+    no: { name: 'Norsk', flag: 'no' },
+    pl: { name: 'Polski', flag: 'pl' },
+    zh: { name: '中文', flag: 'cn' }
+};
+
+const translations = {
+    hu: {
+        ytBadge: "✈️ Airplane Fans YouTube Csatorna",
+        headerTitle: "Segíts valóra váltani a repülős álmomat!",
+        headerSubtitle: "14 éves vagyok. A célom a PPL kisgép-pilóta szakszolgálati engedély megszerzése, és egy napon egy Airbus A350-es utasszállító vezetése!",
+        goalTitle: "Cél: PPL Motoros Kisgép Tanfolyam (45 óra + Elmélet)",
+        goalSub: "Következő mérföldkő: Az elméleti vizsgák és az első repült órák díja.",
+        storyHeading: "A Történetem & Az Álmom",
+        storyP1: "Sziasztok! 14 éves vagyok, és a repülés a mindenem. A legnagyobb álmom, hogy egy napon egy <span class='highlight'>Airbus A350-es óriásgép</span> pilótafülkéjében ülhessek kereskedelmi pilótaként.",
+        storyP2: "Az ehhez vezető út első komoly lépése a <span class='highlight'>PPL (Private Pilot License) kisgépes pilótavizsga</span> megszerzése. Ennek a teljes költsége (üzemanyag, oktatói díj, repült órák, hatósági vizsgák) kb. <strong>4 500 000 Ft</strong>.",
+        storyP3: "A 0-ról indulok el, és a YouTube-on az <strong>Airplane Fans</strong> csatornán minden egyes felkészülést, tanulást és mérföldkövet megosztok veletek!",
+        supportHeading: "Így támogathatod a pilótaképzésemet",
+        supportSub: "Minden apró támogatás közelebb visz az első éles felszálláshoz!",
+        localHeading: "Belföldi (Magyar) Utalás",
+        nameLabel1: "🔹 <strong>Név:</strong>",
+        accLabel1: "🔹 <strong>Számlaszám:</strong>",
+        msgLabel1: "🔹 <strong>Közlemény:</strong>",
+        qrLocalLabel: "Magyar banki QR",
+        intlHeading: "Nemzetközi / Revolut Utalás",
+        nameLabel2: "🔹 <strong>Név:</strong>",
+        bankLabel: "🔹 <strong>Bank:</strong>",
+        qrIntlLabel: "Nemzetközi QR",
+        ytBtn: "▶️ Kövesd az Airplane Fans csatornát!",
+        footerText: "© 2026 Airplane Fans. Minden jog fenntartva."
+    },
+    en: {
+        ytBadge: "✈️ Airplane Fans YouTube Channel",
+        headerTitle: "Help Me Achieve My Aviation Dream!",
+        headerSubtitle: "I am 14 years old. My goal is to earn my PPL license and one day pilot an Airbus A350 passenger airliner!",
+        goalTitle: "Goal: PPL Private Pilot License (45 Hours + Theory)",
+        goalSub: "Next milestone: Theoretical exams and initial flight training fees.",
+        storyHeading: "My Story & My Dream",
+        storyP1: "Hi everyone! I am 14 years old and aviation is my life. My dream is to sit in the cockpit of an <span class='highlight'>Airbus A350</span> as a commercial airline pilot.",
+        storyP2: "The first major milestone on this journey is obtaining a <span class='highlight'>PPL (Private Pilot License)</span>. The total cost (fuel, instructor fees, flight hours, exam fees) is approx. <strong>11,500 EUR / 4,500,000 HUF</strong>.",
+        storyP3: "I am starting from scratch, and I will share every lesson, preparation, and milestone with you on my YouTube channel <strong>Airplane Fans</strong>!",
+        supportHeading: "How You Can Support My Pilot Training",
+        supportSub: "Every small contribution brings me closer to my first takeoff!",
+        localHeading: "Domestic (Hungarian) Transfer",
+        nameLabel1: "🔹 <strong>Name:</strong>",
+        accLabel1: "🔹 <strong>Account Number:</strong>",
+        msgLabel1: "🔹 <strong>Note:</strong>",
+        qrLocalLabel: "Hungarian Bank QR",
+        intlHeading: "International / Revolut Transfer",
+        nameLabel2: "🔹 <strong>Name:</strong>",
+        bankLabel: "🔹 <strong>Bank:</strong>",
+        qrIntlLabel: "International QR",
+        ytBtn: "▶️ Follow the Airplane Fans Channel!",
+        footerText: "© 2026 Airplane Fans. All rights reserved."
+    },
+    de: {
+        ytBadge: "✈️ Airplane Fans YouTube-Kanal",
+        headerTitle: "Hilf mir, meinen Traum vom Fliegen zu verwirklichen!",
+        headerSubtitle: "Ich bin 14 Jahre alt. Mein Ziel ist der Erwerb der PPL-Lizenz und eines Tages ein Airbus A350 Passagierflugzeug zu steuern!",
+        goalTitle: "Ziel: PPL Privatpilotenausbildung (45 Stunden + Theorie)",
+        goalSub: "Nächster Meilenstein: Theorieprüfungen und die ersten Flugstunden.",
+        storyHeading: "Meine Geschichte & Mein Traum",
+        storyP1: "Hallo zusammen! Ich bin 14 Jahre alt und die Fliegerei ist mein Leben. Mein größter Traum ist es, als Verkehrsflugzeugführer im Cockpit eines <span class='highlight'>Airbus A350</span> zu sitzen.",
+        storyP2: "Der erste große Schritt auf diesem Weg ist der Erwerb der <span class='highlight'>PPL (Private Pilot License)</span>. Die Gesamtkosten (Treibstoff, Fluglehrer, Flugstunden, Prüfungsgebühren) betragen ca. <strong>11.500 EUR / 4.500.000 HUF</strong>.",
+        storyP3: "Ich fange bei Null an und teile jede Vorbereitung, jede Lektion und jeden Meilenstein auf meinem YouTube-Kanal <strong>Airplane Fans</strong> mit euch!",
+        supportHeading: "So kannst du meine Pilotenausbildung unterstützen",
+        supportSub: "Jeder kleine Beitrag bringt mich meinem ersten Start näher!",
+        localHeading: "Inlandsüberweisung (Ungarn)",
+        nameLabel1: "🔹 <strong>Name:</strong>",
+        accLabel1: "🔹 <strong>Kontonummer:</strong>",
+        msgLabel1: "🔹 <strong>Verwendungszweck:</strong>",
+        qrLocalLabel: "Ungarischer Bank-QR",
+        intlHeading: "Internationale / Revolut Überweisung",
+        nameLabel2: "🔹 <strong>Name:</strong>",
+        bankLabel: "🔹 <strong>Bank:</strong>",
+        qrIntlLabel: "Internationaler QR",
+        ytBtn: "▶️ Folge dem Airplane Fans Kanal!",
+        footerText: "© 2026 Airplane Fans. Alle Rechte vorbehalten."
+    },
+    fr: {
+        ytBadge: "✈️ Chaîne YouTube Airplane Fans",
+        headerTitle: "Aidez-moi à réaliser mon rêve d'aviation !",
+        headerSubtitle: "J'ai 14 ans. Mon objectif est d'obtenir ma licence PPL et de piloter un jour un avion de ligne Airbus A350 !",
+        goalTitle: "Objectif : Licence de pilote privé PPL (45 heures + Théorie)",
+        goalSub: "Prochaine étape : Examens théoriques et premières heures de vol.",
+        storyHeading: "Mon Histoire & Mon Rêve",
+        storyP1: "Bonjour à tous ! J'ai 14 ans et l'aviation est toute ma vie. Mon plus grand rêve est de m'asseoir dans le cockpit d'un <span class='highlight'>Airbus A350</span> en tant que pilote de ligne.",
+        storyP2: "La première grande étape est l'obtention de la licence <span class='highlight'>PPL (Private Pilot License)</span>. Le coût total (carburant, instructeur, heures de vol, examens) est d'environ <strong>11 500 EUR / 4 500 000 HUF</strong>.",
+        storyP3: "Je pars de zéro et je partagerai chaque leçon, préparation et étape avec vous sur ma chaîne YouTube <strong>Airplane Fans</strong> !",
+        supportHeading: "Comment soutenir ma formation de pilote",
+        supportSub: "Chaque petite contribution me rapproche de mon premier décollage !",
+        localHeading: "Virement National (Hongrie)",
+        nameLabel1: "🔹 <strong>Nom :</strong>",
+        accLabel1: "🔹 <strong>Numéro de compte :</strong>",
+        msgLabel1: "🔹 <strong>Motif :</strong>",
+        qrLocalLabel: "QR Code Banque Hongroise",
+        intlHeading: "Virement International / Revolut",
+        nameLabel2: "🔹 <strong>Nom :</strong>",
+        bankLabel: "🔹 <strong>Banque :</strong>",
+        qrIntlLabel: "QR Code International",
+        ytBtn: "▶️ Suivez la chaîne Airplane Fans !",
+        footerText: "© 2026 Airplane Fans. Tous droits réservés."
+    },
+    it: {
+        ytBadge: "✈️ Canale YouTube Airplane Fans",
+        headerTitle: "Aiutami a realizzare il mio sogno di volare!",
+        headerSubtitle: "Ho 14 anni. Il mio obiettivo è ottenere la licenza PPL e un giorno pilotare un aereo di linea Airbus A350!",
+        goalTitle: "Obiettivo: Licenza di Pilota Privato PPL (45 Ore + Teoria)",
+        goalSub: "Prossima tappa: Esami teorici e costo delle prime ore di volo.",
+        storyHeading: "La Mia Storia & Il Mio Sogno",
+        storyP1: "Ciao a tutti! Ho 14 anni e l'aviazione è tutta la mia vita. Il mio sogno più grande è sedermi nella cabina di pilotaggio di un <span class='highlight'>Airbus A350</span> come pilota di linea.",
+        storyP2: "Il primo vero passo su questo percorso è l'ottenimento della licenza <span class='highlight'>PPL (Private Pilot License)</span>. Il costo totale (carburante, istruttore, ore di volo, esami) è di circa <strong>11.500 EUR / 4.500.000 HUF</strong>.",
+        storyP3: "Parto da zero e condividerò con voi ogni lezione, studio e traguardo sul mio canale YouTube <strong>Airplane Fans</strong>!",
+        supportHeading: "Come puoi sostenere il mio addestramento da pilota",
+        supportSub: "Ogni piccolo contributo mi avvicina al mio primo decollo!",
+        localHeading: "Bonifico Nazionale (Ungheria)",
+        nameLabel1: "🔹 <strong>Nome:</strong>",
+        accLabel1: "🔹 <strong>Numero di conto:</strong>",
+        msgLabel1: "🔹 <strong>Causale:</strong>",
+        qrLocalLabel: "QR Code Bancario Ungherese",
+        intlHeading: "Bonifico Internazionale / Revolut",
+        nameLabel2: "🔹 <strong>Nome:</strong>",
+        bankLabel: "🔹 <strong>Banca:</strong>",
+        qrIntlLabel: "QR Code Internazionale",
+        ytBtn: "▶️ Segui il canale Airplane Fans!",
+        footerText: "© 2026 Airplane Fans. Tutti i diritti riservati."
+    },
+    es: {
+        ytBadge: "✈️ Canal de YouTube Airplane Fans",
+        headerTitle: "¡Ayúdame a hacer realidad mi sueño de volar!",
+        headerSubtitle: "Tengo 14 años. Mi objetivo es obtener mi licencia PPL y un día pilotar un avión comercial Airbus A350.",
+        goalTitle: "Objetivo: Licencia de Piloto Privado PPL (45 Horas + Teoría)",
+        goalSub: "Próxima meta: Exámenes teóricos y primeras horas de vuelo.",
+        storyHeading: "Mi Historia y Mi Sueño",
+        storyP1: "¡Hola a todos! Tengo 14 años y la aviación lo es todo para mí. Mi sueño es sentarme en la cabina de un <span class='highlight'>Airbus A350</span> como piloto comercial.",
+        storyP2: "El primer gran paso es obtener la licencia <span class='highlight'>PPL (Private Pilot License)</span>. El costo total (combustible, instructor, horas de vuelo, exámenes) es de aprox. <strong>11.500 EUR / 4.500.000 HUF</strong>.",
+        storyP3: "Empiezo desde cero y compartiré cada avance, clase y vuelo en mi canal de YouTube <strong>Airplane Fans</strong>.",
+        supportHeading: "Cómo puedes apoyar mi entrenamiento de piloto",
+        supportSub: "¡Cada pequeña contribución me acerca a mi primer despegue!",
+        localHeading: "Transferencia Nacional (Hungría)",
+        nameLabel1: "🔹 <strong>Nombre:</strong>",
+        accLabel1: "🔹 <strong>Número de cuenta:</strong>",
+        msgLabel1: "🔹 <strong>Concepto:</strong>",
+        qrLocalLabel: "QR Bancario Húngaro",
+        intlHeading: "Transferencia Internacional / Revolut",
+        nameLabel2: "🔹 <strong>Nombre:</strong>",
+        bankLabel: "🔹 <strong>Banco:</strong>",
+        qrIntlLabel: "QR Internacional",
+        ytBtn: "▶️ ¡Sigue el canal Airplane Fans!",
+        footerText: "© 2026 Airplane Fans. Todos los derechos reservados."
+    },
+    sv: {
+        ytBadge: "✈️ Airplane Fans YouTube-kanal",
+        headerTitle: "Hjälp mig att förverkliga min flygdröm!",
+        headerSubtitle: "Jag är 14 år gammal. Mitt mål är att ta mitt PPL-certifikat och en dag flyga en Airbus A350 som trafikflygare!",
+        goalTitle: "Mål: PPL Privatflygarcertifikat (45 Timmar + Teori)",
+        goalSub: "Nästa delmål: Teoretiska prov och avgift för de första flygtimmarna.",
+        storyHeading: "Min Historia & Min Dröm",
+        storyP1: "Hej allihopa! Jag är 14 år gammal och flyg är mitt allt. Min största dröm är att en dag sitta i cockpit på en <span class='highlight'>Airbus A350</span> som kommersiell pilot.",
+        storyP2: "Det första stora steget på vägen är att ta ett <span class='highlight'>PPL (Private Pilot License)</span>. Den totala kostnaden (bränsle, instruktör, flygtimmar, avgifter) är ca <strong>11 500 EUR / 4 500 000 HUF</strong>.",
+        storyP3: "Jag börjar från noll och kommer att dela varje lektion, förberedelse och framsteg med er på min YouTube-kanal <strong>Airplane Fans</strong>!",
+        supportHeading: "Så kan du stödja min pilotutbildning",
+        supportSub: "Varje litet bidrag tar mig närmare min första lättning!",
+        localHeading: "Inhemsk Överföring (Ungern)",
+        nameLabel1: "🔹 <strong>Namn:</strong>",
+        accLabel1: "🔹 <strong>Kontonummer:</strong>",
+        msgLabel1: "🔹 <strong>Meddelande:</strong>",
+        qrLocalLabel: "Ungersk Bank-QR",
+        intlHeading: "Internationell / Revolut-överföring",
+        nameLabel2: "🔹 <strong>Namn:</strong>",
+        bankLabel: "🔹 <strong>Bank:</strong>",
+        qrIntlLabel: "Internationell QR",
+        ytBtn: "▶️ Följ Airplane Fans-kanalen!",
+        footerText: "© 2026 Airplane Fans. Alla rättigheter förbehållna."
+    },
+    no: {
+        ytBadge: "✈️ Airplane Fans YouTube-kanal",
+        headerTitle: "Hjelp meg med å nå flydrømmen min!",
+        headerSubtitle: "Jeg er 14 år gammel. Målet mitt er å ta PPL-sertifikatet og en dag fly en Airbus A350 som trafikkflyger!",
+        goalTitle: "Mål: PPL Privatflygersertifikat (45 Timer + Teori)",
+        goalSub: "Neste delmål: Teoretiske eksamener og avgifter for de første flytimene.",
+        storyHeading: "Min Historie & Min Drøm",
+        storyP1: "Hei alle sammen! Jeg er 14 år gammel og brenner for flygning. Min største drøm er å sitte i cockpit på en <span class='highlight'>Airbus A350</span> som kommersiell pilot.",
+        storyP2: "Det første store steget er å ta et <span class='highlight'>PPL (Private Pilot License)</span>. Totalprisen (drivstoff, instruktør, flytimer, eksamensavgifter) er ca. <strong>11 500 EUR / 4 500 000 HUF</strong>.",
+        storyP3: "Jeg starter fra null og vil dele hver leksjon, forberedelse og milepæl med dere på YouTube-kanalen min <strong>Airplane Fans</strong>!",
+        supportHeading: "Slik kan du støtte pilotutdanningen min",
+        supportSub: "Hvert lite bidrag bringer meg nærmere min første takeoff!",
+        localHeading: "Innenlandsk Overføring (Ungarn)",
+        nameLabel1: "🔹 <strong>Navn:</strong>",
+        accLabel1: "🔹 <strong>Kontonummer:</strong>",
+        msgLabel1: "🔹 <strong>Melding:</strong>",
+        qrLocalLabel: "Ungarsk Bank-QR",
+        intlHeading: "Internasjonal / Revolut-overføring",
+        nameLabel2: "🔹 <strong>Navn:</strong>",
+        bankLabel: "🔹 <strong>Bank:</strong>",
+        qrIntlLabel: "Internasjonal QR",
+        ytBtn: "▶️ Følg Airplane Fans-kanalen!",
+        footerText: "© 2026 Airplane Fans. Alle rettigheter forbeholdt."
+    },
+    pl: {
+        ytBadge: "✈️ Kanał YouTube Airplane Fans",
+        headerTitle: "Pomóż mi spełnić moje lotnicze marzenie!",
+        headerSubtitle: "Mam 14 lat. Moim celem jest uzyskanie licencji pilota PPL i pewnego dnia prowadzenie samolotu pasażerskiego Airbus A350!",
+        goalTitle: "Cel: Kurs Pilota Turystycznego PPL (45 godzin + Teoria)",
+        goalSub: "Kolejny krok: Egzaminy teoretyczne i opłata za pierwsze godziny lotu.",
+        storyHeading: "Moja Historia i Moje Marzenie",
+        storyP1: "Cześć wszystkim! Mam 14 lat, a lotnictwo to całe moje życie. Moim największym marzeniem jest zasiąść w kokpicie <span class='highlight'>Airbusa A350</span> jako pilot liniowy.",
+        storyP2: "Pierwszym wielkim krokiem jest zdobycie licencji <span class='highlight'>PPL (Private Pilot License)</span>. Całkowity koszt (paliwo, instruktor, godziny lotu, egzaminy) to ok. <strong>11 500 EUR / 4 500 000 HUF</strong>.",
+        storyP3: "Zaczynam od zera i będę dzielił się z Wami każdą lekcją, przygotowaniami i sukcesami na moim kanale YouTube <strong>Airplane Fans</strong>!",
+        supportHeading: "Jak możesz wesprzeć moje szkolenie lotnicze",
+        supportSub: "Każda mała wpłata przybliża mnie do pierwszego samodzielnego lotu!",
+        localHeading: "Przelew Krajowy (Węgry)",
+        nameLabel1: "🔹 <strong>Imię i nazwisko:</strong>",
+        accLabel1: "🔹 <strong>Numer konta:</strong>",
+        msgLabel1: "🔹 <strong>Tytuł przelewu:</strong>",
+        qrLocalLabel: "Węgierski Kod QR",
+        intlHeading: "Przelew Międzynarodowy / Revolut",
+        nameLabel2: "🔹 <strong>Imię i nazwisko:</strong>",
+        bankLabel: "🔹 <strong>Bank:</strong>",
+        qrIntlLabel: "Międzynarodowy Kod QR",
+        ytBtn: "▶️ Subskrybuj kanał Airplane Fans!",
+        footerText: "© 2026 Airplane Fans. Wszelkie prawa zastrzeżone."
+    },
+    zh: {
+        ytBadge: "✈️ Airplane Fans YouTube 频道",
+        headerTitle: "请帮助我实现飞行梦想！",
+        headerSubtitle: "我今年14岁。我的目标是获得PPL私人飞行执照，希望有一天能驾驶空客A350客机！",
+        goalTitle: "目标：PPL私人飞行员课程（45小时飞行 + 理论）",
+        goalSub: "下一个里程碑：理论考试和初始飞行训练费用。",
+        storyHeading: "我的故事与梦想",
+        storyP1: "大家好！我今年14岁，飞行是我的全部。我最大的梦想是作为一名民航飞行员，坐在 <span class='highlight'>空客 A350</span> 的驾驶舱里。",
+        storyP2: "这条道路上的第一个重大里程碑是获得 <span class='highlight'>PPL（私人飞行员执照）</span>。总费用（燃油、教练费、飞行时数、考试费）约为 <strong>11,500 欧元 / 4,500,000 福林</strong>。",
+        storyP3: "我从零开始，会在我的YouTube频道 <strong>Airplane Fans</strong> 上与大家分享每一次的学习、准备和进步！",
+        supportHeading: "如何支持我的飞行员培训",
+        supportSub: "每一份微小的支持都让我离第一次起飞更近一步！",
+        localHeading: "匈牙利本地转账",
+        nameLabel1: "🔹 <strong>姓名：</strong>",
+        accLabel1: "🔹 <strong>账号：</strong>",
+        msgLabel1: "🔹 <strong>附言：</strong>",
+        qrLocalLabel: "匈牙利银行二维码",
+        intlHeading: "国际 / Revolut 转账",
+        nameLabel2: "🔹 <strong>姓名：</strong>",
+        bankLabel: "🔹 <strong>银行：</strong>",
+        qrIntlLabel: "国际二维码",
+        ytBtn: "▶️ 关注 Airplane Fans 频道！",
+        footerText: "© 2026 Airplane Fans. 保留所有权利。"
+    }
+};
+
+function toggleDropdown() {
+    document.getElementById('langDropdown').classList.toggle('show');
+}
+
+window.onclick = function(event) {
+    if (!event.target.closest('.lang-container')) {
+        document.getElementById('langDropdown').classList.remove('show');
+    }
+}
+
+function selectLang(langCode, langName, flagCode) {
+    document.getElementById('currentFlag').src = `https://flagcdn.com/w40/${flagCode}.png`;
+    document.getElementById('currentLangText').innerText = langName;
+    document.getElementById('langDropdown').classList.remove('show');
+
+    const data = translations[langCode];
+    if (!data) return;
+
+    for (let key in data) {
+        const el = document.getElementById(key);
+        if (el) el.innerHTML = data[key];
+    }
+}
+
+// Alapértelmezetten Magyar
+selectLang('hu', 'Magyar', 'hu');
+
+// Automatikus helymeghatározás külföldi látogatókhoz
+window.addEventListener('DOMContentLoaded', () => {
+    fetch('https://ipapi.co/json/')
+        .then(res => res.json())
+        .then(data => {
+            const country = data.country_code;
+            const countryToLang = {
+                'HU': 'hu', 'DE': 'de', 'AT': 'de', 'CH': 'de',
+                'FR': 'fr', 'BE': 'fr', 'IT': 'it', 'ES': 'es',
+                'MX': 'es', 'AR': 'es', 'SE': 'sv', 'NO': 'no',
+                'PL': 'pl', 'CN': 'zh', 'TW': 'zh', 'HK': 'zh'
+            };
+            
+            if (country && country !== 'HU') {
+                const targetLang = countryToLang[country] || 'en';
+                const info = langDetails[targetLang];
+                selectLang(targetLang, info.name, info.flag);
+            }
+        })
+        .catch(() => {});
+});
+</script>
 
 </body>
 </html>
