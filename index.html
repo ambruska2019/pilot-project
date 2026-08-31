@@ -19,13 +19,13 @@
       padding: 20px;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 40px 20px;
     }
     header {
       text-align: center;
-      padding: 20px 0 40px 0;
+      padding: 40px 0 20px 0;
     }
     .badge {
       background: #1c2541;
@@ -76,19 +76,20 @@
       align-items: center;
       margin-bottom: 10px;
       font-weight: 600;
+      flex-wrap: wrap;
+      gap: 5px;
     }
     .progress-bar-bg {
-      background-color: #0b132b;
+      background: #0b132b;
+      height: 22px;
       border-radius: 10px;
-      height: 20px;
-      width: 100%;
       overflow: hidden;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
     }
     .progress-bar-fill {
       background: linear-gradient(90deg, #4ea8de, #5bc0be);
       height: 100%;
-      width: 0%; /* Itt tudod módosítani a haladási százalékot */
+      width: 0%;
       border-radius: 10px;
       transition: width 0.5s ease;
     }
