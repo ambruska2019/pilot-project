@@ -78,7 +78,7 @@
         .progress-bar-fill {
             background: linear-gradient(90deg, #0077b6, #00b4d8);
             height: 100%;
-            width: 0%; /* Ahogy gyűlik a támogatás, ezt a 0%-ot átírhatod */
+            width: 0%;
             border-radius: 10px;
         }
         .story-text {
@@ -97,6 +97,9 @@
             margin-top: 15px;
             text-align: left;
             border-left: 4px solid #00b4d8;
+        }
+        .bank-details p {
+            margin-bottom: 8px;
         }
         .btn {
             display: inline-block;
@@ -162,10 +165,17 @@
         <p style="color: #94a3b8; margin-top: 5px;">Minden apró támogatás közelebb visz az első éles felszálláshoz!</p>
         
         <div class="bank-details">
-            <p><strong>Banki Utalás:</strong></p>
-            <p>🔹 <strong>Név:</strong> [Ide írd a neved vagy a számlatulajdonos nevét]</p>
-            <p>🔹 <strong>Számlaszám:</strong> [Ide írd a bankszámlaszámodat]</p>
+            <p style="color: #48cae4; font-weight: 600;">🇭🇺 Magyarországi utaláshoz:</p>
+            <p>🔹 <strong>Név:</strong> [A te neved]</p>
+            <p>🔹 <strong>Számlaszám / IBAN:</strong> [Ide írd a HU... számlaszámodat]</p>
             <p>🔹 <strong>Közlemény:</strong> Airplane Fans támogatás</p>
+            
+            <hr style="border: 0; border-top: 1px solid #1c2541; margin: 15px 0;">
+            
+            <p style="color: #48cae4; font-weight: 600;">🌍 Külföldi (SEPA / International) utaláshoz:</p>
+            <p>🔹 <strong>IBAN:</strong> [Ide írd a HU... számlaszámodat]</p>
+            <p>🔹 <strong>BIC / SWIFT kód:</strong> [Ide írd a Revolut SWIFT kódját, pl. REVOHU21XXX]</p>
+            <p>🔹 <strong>Bank neve:</strong> Revolut Bank UAB</p>
         </div>
 
         <a href="https://www.youtube.com/@airplanefans" target="_blank" class="btn">▶️ Kövesd az Airplane Fans csatornát!</a>
