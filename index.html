@@ -1,175 +1,156 @@
-HTML
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airplane Fans | Út a Pilótafülkébe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background-color: #0b132b;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0 20px;
-        }
-        .badge {
-            background: #1c2541;
-            color: #48cae4;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        h1 {
-            font-size: 2.4rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-        p.subtitle {
-            font-size: 1.1rem;
-            color: #a0aec0;
-            max-width: 650px;
-            margin: 0 auto 30px;
-        }
-        .card {
-            background: #1c2541;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .progress-title {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        .progress-bar-bg {
-            background: #0b132b;
-            height: 22px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-        .progress-bar-fill {
-            background: linear-gradient(90deg, #0077b6, #00b4d8);
-            height: 100%;
-            width: 0%; /* Ahogy gyűlik a támogatás, ezt a 0%-ot átírhatod */
-            border-radius: 10px;
-        }
-        .story-text {
-            color: #cbd5e1;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-        .highlight {
-            color: #48cae4;
-            font-weight: 600;
-        }
-        .bank-details {
-            background: #0b132b;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-            text-align: left;
-            border-left: 4px solid #00b4d8;
-        }
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            background: #ff0000;
-            color: #ffffff;
-            transition: transform 0.2s;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        footer {
-            text-align: center;
-            color: #64748b;
-            font-size: 0.85rem;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airplane Fans | Út a Pilótafülkébe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #0b132b;
+      color: #ffffff;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    header {
+      text-align: center;
+      padding: 20px 0 40px 0;
+    }
+    .badge {
+      background: #1c2541;
+      color: #4ea8de;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #a5a5a5;
+      max-width: 650px;
+      margin: 0 auto 25px auto;
+    }
+    .yt-button {
+      display: inline-block;
+      background-color: #ff0000;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    }
+    .yt-button:hover {
+      background-color: #cc0000;
+      transform: translateY(-2px);
+    }
+    .card {
+      background: #1c2541;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .progress-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .progress-bar-bg {
+      background-color: #0b132b;
+      border-radius: 10px;
+      height: 20px;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+    .progress-bar-fill {
+      background: linear-gradient(90deg, #4ea8de, #5bc0be);
+      height: 100%;
+      width: 0%; /* Itt tudod módosítani a haladási százalékot */
+      border-radius: 10px;
+      transition: width 0.5s ease;
+    }
+    .bank-details {
+      background-color: #0b132b;
+      border-left: 4px solid #5bc0be;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .bank-details p {
+      margin-bottom: 8px;
+    }
+    .bank-details p:last-child {
+      margin-bottom: 0;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: #8d99ae;
+      margin-top: 15px;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
     <header>
-        <div class="badge">✈️ Airplane Fans YouTube Csatorna</div>
-        <h1>Segíts valóra váltani a repülős álmomat!</h1>
-        <p class="subtitle">14 éves vagyok. A célom a PPL kisgép-pilóta szakszolgálati engedély megszerzése, és egy napon egy Airbus A350-es utasszállító vezetése!</p>
+      <span class="badge">Pilótaképzés Támogatása</span>
+      <h1>Airplane Fans</h1>
+      <p class="subtitle">Üdvözöllek! Ezen az oldalon nyomon követheted a pilótaképzésem támogatási állapotát, és segítheted a YouTube csatornám fejlődését.</p>
+      <a href="https://www.youtube.com/@airplanefans" target="_blank" class="yt-button">✈️ Airplane Fans YouTube Csatorna</a>
     </header>
 
-    <!-- Mérföldkő számláló -->
-    <div class="card">
+    <main>
+      <!-- Támogatási állás kártya -->
+      <div class="card">
         <div class="progress-title">
-            <span>Cél: PPL Motoros Kisgép Tanfolyam (45 óra + Elmélet)</span>
-            <span>0% (0 Ft / 4 500 000 Ft)</span>
+          <span>Gyűjtési Cél</span>
+          <span>0 / 0 Ft</span>
         </div>
         <div class="progress-bar-bg">
-            <div class="progress-bar-fill"></div>
+          <div class="progress-bar-fill"></div>
         </div>
-        <p style="font-size: 0.85rem; color: #94a3b8;">Következő mérföldkő: Az elméleti vizsgák és az első repült órák díja.</p>
-    </div>
+        <p>A támogatásokból befolyó összeget teljes egészében a pilótaképzésre és a videók minőségének javítására fordítom.</p>
+      </div>
 
-    <!-- Történeted -->
-    <div class="card">
-        <h2 style="margin-bottom: 15px; color: #48cae4;">A Történetem & Az Álmom</h2>
-        <p class="story-text">
-            Sziasztok! 14 éves vagyok, és a repülés a mindenem. A legnagyobb álmom, hogy egy napon egy <span class="highlight">Airbus A350-es óriásgép</span> pilótafülkéjében ülhessek kereskedelmi pilótaként.
-        </p>
-        <p class="story-text">
-            Az ehhez vezető út első komoly lépése a <span class="highlight">PPL (Private Pilot License) kisgépes pilótavizsga</span> megszerzése. Ennek a teljes költsége (üzemanyag, oktatói díj, repült órák, hatósági vizsgák) kb. <strong>4 500 000 Ft</strong>.
-        </p>
-        <p class="story-text">
-            A 0-ról indulok el, és a YouTube-on az <strong>Airplane Fans</strong> csatornán minden egyes felkészülést, tanulást és mérföldkövet megosztok veletek!
-        </p>
-    </div>
-
-    <!-- Támogatás rész -->
-    <div class="card" style="text-align: center;">
-        <h2 style="color: #48cae4;">Így támogathatod a pilótaképzésemet</h2>
-        <p style="color: #94a3b8; margin-top: 5px;">Minden apró támogatás közelebb visz az első éles felszálláshoz!</p>
+      <!-- Banki utalás kártya -->
+      <div class="card">
+        <h2>Banki Utalás</h2>
+        <p style="margin-top: 10px;">Ha szeretnéd támogatni a projektet, az alábbi számlaszámra tudsz utalni:</p>
         
         <div class="bank-details">
-            <p><strong>Banki Utalás:</strong></p>
-            <p>🔹 <strong>Név:</strong> [Ide írd a neved vagy a számlatulajdonos nevét]</p>
-            <p>🔹 <strong>Számlaszám:</strong> [Ide írd a bankszámlaszámodat]</p>
-            <p>🔹 <strong>Közlemény:</strong> Airplane Fans támogatás</p>
+          <p><strong>Név:</strong> [A te neved]</p>
+          <p><strong>Számlaszám:</strong> [A te számlaszámod]</p>
+          <p><strong>Közlemény:</strong> Airplane Fans támogatás</p>
         </div>
 
-        <a href="https://www.youtube.com/@airplanefans" target="_blank" class="btn">▶️ Kövesd az Airplane Fans csatornát!</a>
-    </div>
-
-    <footer>
-        <p>© 2026 Airplane Fans. Minden jog fenntartva.</p>
-    </footer>
-</div>
+        <p class="note">* A támogatás önkéntes ajándék a tartalomgyártás és a pilótaképzés segítésére.</p>
+      </div>
+    </main>
+  </div>
 
 </body>
 </html>
