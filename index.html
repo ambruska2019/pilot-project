@@ -1,4 +1,5 @@
-ű<!DOCTYPE html>
+HTML
+<!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
@@ -163,7 +164,7 @@
             font-weight: 600;
         }
         
-        /* KATTINTHATÓ TÁMOGATÁSI KÁRTYÁK */
+        /* TÁMOGATÁSI KÁRTYÁK */
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -174,30 +175,30 @@
             background: linear-gradient(145deg, #0f1a3a, #080e21);
             border: 2px solid #3a506b;
             border-radius: 16px;
-            padding: 24px 15px;
+            padding: 28px 15px;
             text-align: center;
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
+            justify-content: center;
+            align-items: center;
             position: relative;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
         .impact-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-5px);
             border-color: #48cae4;
-            box-shadow: 0 15px 30px rgba(72, 202, 228, 0.25);
+            box-shadow: 0 12px 25px rgba(72, 202, 228, 0.3);
         }
         .impact-card.featured {
             border-color: #ffdd00;
             background: linear-gradient(145deg, #1c274c, #0d152d);
         }
         .impact-card.featured:hover {
-            border-color: #ffe600;
-            box-shadow: 0 15px 30px rgba(255, 221, 0, 0.3);
+            box-shadow: 0 12px 25px rgba(255, 221, 0, 0.4);
         }
         .badge-pop {
             position: absolute;
@@ -211,75 +212,61 @@
             border-radius: 12px;
             text-transform: uppercase;
         }
+        .coffee-icon {
+            font-size: 1.8rem;
+            margin-top: 5px;
+        }
+        .small-subtext {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 4px;
+            font-weight: 400;
+        }
         .impact-amount {
             font-size: 1.8rem;
             font-weight: 800;
             color: #48cae4;
-            margin-bottom: 8px;
+            margin-bottom: 2px;
         }
         .impact-card.featured .impact-amount {
             color: #ffdd00;
         }
-        .impact-desc {
-            font-size: 0.95rem;
-            color: #e2e8f0;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        .card-btn-action {
-            background: rgba(72, 202, 228, 0.15);
-            color: #48cae4;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border: 1px solid rgba(72, 202, 228, 0.4);
-            transition: all 0.2s;
-        }
-        .impact-card:hover .card-btn-action {
-            background: #48cae4;
-            color: #0b132b;
-        }
-        .impact-card.featured .card-btn-action {
-            background: rgba(255, 221, 0, 0.15);
-            color: #ffdd00;
-            border-color: rgba(255, 221, 0, 0.4);
-        }
-        .impact-card.featured:hover .card-btn-action {
-            background: #ffdd00;
-            color: #000;
-        }
 
-        /* Banki utalás harmonika / letisztult blokk */
+        /* Banki utalás blokk */
+        .bank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
         .bank-box {
             background: #0b132b;
-            padding: 22px;
+            padding: 20px;
             border-radius: 14px;
             text-align: left;
             border-left: 4px solid #00b4d8;
-            margin-top: 15px;
             box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
         }
         .bank-info p {
             margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
         
         .copyable {
             cursor: pointer;
             background: #1c2541;
-            padding: 4px 10px;
+            padding: 4px 8px;
             border-radius: 6px;
             border: 1px solid #3a506b;
             transition: all 0.2s;
             user-select: all;
             font-family: monospace;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #48cae4;
         }
         .copyable:hover {
@@ -301,8 +288,8 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 16px 32px;
-            font-size: 1.05rem;
+            padding: 14px 28px;
+            font-size: 1rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 12px;
@@ -313,12 +300,12 @@
             transform: translateY(-3px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.4);
         }
-        .btn-coffee {
+        .btn-bmc {
             background: #ffdd00;
             color: #000000;
         }
-        .btn-coffee:hover {
-            background: #ffe600;
+        .btn-bmc:hover {
+            background: #ffe533;
             box-shadow: 0 10px 25px rgba(255, 221, 0, 0.4);
         }
         .btn-yt {
@@ -412,54 +399,57 @@
 
     <div class="card" style="text-align: center;">
         <h2 style="color: #48cae4;" id="supportHeading">Így támogathatod a pilótaképzésemet</h2>
-        <p style="color: #94a3b8; margin-top: 5px;" id="supportSub">Minden apró támogatás számít! Kattints bármelyik opcióra a gyors utaláshoz:</p>
+        <p style="color: #94a3b8; margin-top: 5px; margin-bottom: 20px;" id="supportSub">Minden támogatás 100%-ban, közvetítői jutalékok nélkül jut el hozzám banki átutalással:</p>
         
-        <!-- KATTINTHATÓ TÁMOGATÁSI KÁRTYÁK (Közvetlen Buy Me a Coffee hivatkozásokkal) -->
+        <!-- TÁMOGATÁSI KÁRTYÁK -->
         <div class="impact-grid">
-            <a href="https://www.buymeacoffee.com" target="_blank" class="impact-card">
-                <div class="impact-amount">1 000 Ft</div>
-                <div class="impact-desc" id="imp1">~1 liter repülőbenzin (AVGAS)</div>
-                <div class="card-btn-action" id="cardBtn1">Támogatom 1 000 Ft-tal ✈️</div>
+            <a href="https://buymeacoffee.com/airplanefans" target="_blank" class="impact-card">
+                <div class="impact-amount" id="amt1">1 000 Ft</div>
+                <div class="coffee-icon">☕</div>
             </a>
             
-            <a href="https://www.buymeacoffee.com" target="_blank" class="impact-card featured">
-                <div class="badge-pop">Legnépszerűbb</div>
-                <div class="impact-amount">1 500 Ft</div>
-                <div class="impact-desc" id="imp2">1 perc oktatói repülési idő</div>
-                <div class="card-btn-action" id="cardBtn2">Támogatom 1 500 Ft-tal ⏱️</div>
+            <a href="https://buymeacoffee.com/airplanefans" target="_blank" class="impact-card featured">
+                <div class="badge-pop" id="badge">Legnépszerűbb</div>
+                <div class="impact-amount" id="amt2">2 000 Ft</div>
+                <div class="coffee-icon">☕☕</div>
             </a>
             
-            <a href="https://www.buymeacoffee.com" target="_blank" class="impact-card">
-                <div class="impact-amount">100 000 Ft</div>
-                <div class="impact-desc" id="imp3">1 teljes repült óra oktatóval</div>
-                <div class="card-btn-action" id="cardBtn3">1 Repült Óra Finanszírozása 👨‍✈️</div>
+            <a href="https://buymeacoffee.com/airplanefans" target="_blank" class="impact-card">
+                <div class="impact-amount" id="amt3">100 000 Ft</div>
+                <div class="coffee-icon">✈️</div>
+                <div class="small-subtext" id="subtextTanfolyam">tanfolyam</div>
             </a>
         </div>
 
         <!-- Banki utalási adatok -->
-        <div class="bank-box">
-            <div class="bank-info">
-                <h3 style="color: #48cae4; font-size: 1.1rem; margin-bottom: 12px;" id="localHeading">Belföldi (Magyar) Utalás</h3>
-                <p><span><strong id="nameLabel1">Név:</strong></span> <span style="color: #e2e8f0;">[A te neved / Szülő neve]</span></p>
-                <p><span><strong id="accLabel1">Számlaszám:</strong></span> <span class="copyable" onclick="copyText('[Ide írd a számlaszámodat]', this)">[Ide írd a számlaszámodat]</span></p>
-                <p><span><strong id="msgLabel1">Közlemény:</strong></span> <span class="copyable" onclick="copyText('Airplane Fans támogatás', this)">Airplane Fans támogatás</span></p>
+        <div class="bank-grid">
+            <div class="bank-box">
+                <div class="bank-info">
+                    <h3 style="color: #48cae4; font-size: 1.05rem; margin-bottom: 12px;" id="localHeading">🇭🇺 Belföldi Utalás (Ft)</h3>
+                    
+                    <p style="margin-top: 15px;"><span><strong id="nameLabel1">Név:</strong></span> <span style="color: #e2e8f0;">PAPP AMBRUS JONATÁN</span></p>
+                    <p><span><strong id="bankLabel1">Bank:</strong></span> <span style="color: #e2e8f0;">CIB Bank</span></p>
+                    <p><span><strong id="accLabel1">Számlaszám:</strong></span> <span class="copyable" onclick="copyText('10700457-74630967-51100005', this)">10700457-74630967-51100005</span></p>
+                    <p><span><strong id="msgLabel1">Közlemény:</strong></span> <span class="copyable" onclick="copyText('Airplane Fans támogatás', this)">Airplane Fans támogatás</span></p>
+                </div>
+            </div>
+
+            <div class="bank-box" style="border-left-color: #ffdd00;">
+                <div class="bank-info">
+                    <h3 style="color: #ffdd00; font-size: 1.05rem; margin-bottom: 12px;" id="intlHeading">🌍 Nemzetközi Utalás (IBAN)</h3>
+                    <p><span><strong id="nameLabel2">Név:</strong></span> <span style="color: #e2e8f0;">PAPP AMBRUS JONATÁN</span></p>
+                    <p><span><strong id="bankLabel2">Bank:</strong></span> <span style="color: #e2e8f0;">CIB Bank</span></p>
+                    <p><span><strong>IBAN:</strong></span> <span class="copyable" onclick="copyText('HU17107004577463096751100005', this)">HU17107004577463096751100005</span></p>
+                    <p><span><strong>SWIFT/BIC:</strong></span> <span class="copyable" onclick="copyText('CIBHHUHB', this)">CIBHHUHB</span></p>
+                    <p><span><strong id="msgLabel2">Közlemény:</strong></span> <span class="copyable" onclick="copyText('Airplane Fans támogatás', this)">Airplane Fans támogatás</span></p>
+                </div>
             </div>
         </div>
 
-        <div class="bank-box">
-            <div class="bank-info">
-                <h3 style="color: #48cae4; font-size: 1.1rem; margin-bottom: 12px;" id="intlHeading">Nemzetközi / Revolut Utalás</h3>
-                <p><span><strong id="nameLabel2">Név:</strong></span> <span style="color: #e2e8f0;">[A te neved / Szülő neve]</span></p>
-                <p><span><strong>IBAN:</strong></span> <span class="copyable" onclick="copyText('[Ide írd a HU... IBAN számot]', this)">[Ide írd a HU... IBAN számot]</span></p>
-                <p><span><strong>SWIFT / BIC:</strong></span> <span class="copyable" onclick="copyText('REVOHU21XXX', this)">REVOHU21XXX</span></p>
-                <p><span><strong id="bankLabel">Bank:</strong></span> <span style="color: #e2e8f0;">Revolut Bank UAB</span></p>
-            </div>
-        </div>
-
-        <!-- Buy Me a Coffee & YouTube Gombok -->
+        <!-- Gombok -->
         <div class="button-group">
-            <a href="https://www.buymeacoffee.com" target="_blank" class="btn btn-coffee" id="coffeeBtn">
-                ☕ Hívj meg egy kávéra / Egyedi Támogatás
+            <a href="https://buymeacoffee.com/airplanefans" target="_blank" class="btn btn-bmc" id="bmcBtn">
+                ☕ Buy Me a Coffee (Kártyás fizetés)
             </a>
             <a href="https://www.youtube.com/@airplanefans" target="_blank" class="btn btn-yt" id="ytBtn">
                 ▶️ Airplane Fans YouTube Csatorna
@@ -498,21 +488,22 @@ const translations = {
         storyP2: "Az ehhez vezető út első komoly lépése a <span class='highlight'>PPL (Private Pilot License) kisgépes pilótavizsga</span> megszerzése. Ennek a teljes költsége (üzemanyag, oktatói díj, repült órák, hatósági vizsgák) kb. <strong>4 500 000 Ft</strong>.",
         storyP3: "A 0-ról indulok el, és a YouTube-on az <strong>Airplane Fans</strong> csatornán minden egyes felkészülést, tanulást és mérföldkövet megosztok veletek!",
         supportHeading: "Így támogathatod a pilótaképzésemet",
-        supportSub: "Minden apró támogatás számít! Kattints bármelyik opcióra a gyors utaláshoz:",
-        imp1: "~1 liter repülőbenzin (AVGAS)",
-        imp2: "1 perc oktatói repülési idő",
-        imp3: "1 teljes repült óra oktatóval",
-        cardBtn1: "Támogatom 1 000 Ft-tal ✈️",
-        cardBtn2: "Támogatom 1 500 Ft-tal ⏱️",
-        cardBtn3: "1 Repült Óra Finanszírozása 👨‍✈️",
-        localHeading: "Belföldi (Magyar) Utalás",
+        supportSub: "Minden támogatás 100%-ban, közvetítői jutalékok nélkül jut el hozzám banki átutalással:",
+        amt1: "1 000 Ft",
+        amt2: "2 000 Ft",
+        amt3: "100 000 Ft",
+        subtextTanfolyam: "tanfolyam",
+        badge: "Legnépszerűbb",
+        localHeading: "🇭🇺 Belföldi Utalás (Ft)",
+        intlHeading: "🌍 Nemzetközi Utalás (IBAN)",
         nameLabel1: "Név:",
+        bankLabel1: "Bank:",
         accLabel1: "Számlaszám:",
         msgLabel1: "Közlemény:",
-        intlHeading: "Nemzetközi / Revolut Utalás",
         nameLabel2: "Név:",
-        bankLabel: "Bank:",
-        coffeeBtn: "☕ Hívj meg egy kávéra / Egyedi Támogatás",
+        bankLabel2: "Bank:",
+        msgLabel2: "Közlemény:",
+        bmcBtn: "☕ Buy Me a Coffee (Kártyás fizetés)",
         ytBtn: "▶️ Airplane Fans YouTube Csatorna",
         footerText: "© 2026 Airplane Fans. Minden jog fenntartva."
     },
@@ -527,21 +518,22 @@ const translations = {
         storyP2: "The first major milestone on this journey is obtaining a <span class='highlight'>PPL (Private Pilot License)</span>. The total cost (fuel, instructor fees, flight hours, exam fees) is approx. <strong>11,500 EUR / 4,500,000 HUF</strong>.",
         storyP3: "I am starting from scratch, and I will share every lesson, preparation, and milestone with you on my YouTube channel <strong>Airplane Fans</strong>!",
         supportHeading: "How You Can Support My Pilot Training",
-        supportSub: "Every donation counts! Click any option below to support directly:",
-        imp1: "~1 liter aviation fuel (AVGAS)",
-        imp2: "1 minute flight training time",
-        imp3: "1 full flight hour with instructor",
-        cardBtn1: "Support with ~3 EUR ✈️",
-        cardBtn2: "Support with ~4 EUR ⏱️",
-        cardBtn3: "Fund 1 Flight Hour 👨‍✈️",
-        localHeading: "Domestic (Hungarian) Transfer",
+        supportSub: "100% of your donation goes directly toward my flight hours without platform fees via bank transfer:",
+        amt1: "1,000 HUF",
+        amt2: "2,000 HUF",
+        amt3: "100,000 HUF",
+        subtextTanfolyam: "course",
+        badge: "Most Popular",
+        localHeading: "🇭🇺 Domestic Transfer (HUF)",
+        intlHeading: "🌍 International Transfer (IBAN)",
         nameLabel1: "Name:",
+        bankLabel1: "Bank:",
         accLabel1: "Account Number:",
         msgLabel1: "Note:",
-        intlHeading: "International / Revolut Transfer",
         nameLabel2: "Name:",
-        bankLabel: "Bank:",
-        coffeeBtn: "☕ Buy Me a Coffee / Custom Support",
+        bankLabel2: "Bank:",
+        msgLabel2: "Note:",
+        bmcBtn: "☕ Buy Me a Coffee (Card payment)",
         ytBtn: "▶️ Airplane Fans YouTube Channel",
         footerText: "© 2026 Airplane Fans. All rights reserved."
     },
@@ -556,21 +548,22 @@ const translations = {
         storyP2: "Der erste große Schritt auf diesem Weg ist der Erwerb der <span class='highlight'>PPL (Private Pilot License)</span>. Die Gesamtkosten (Treibstoff, Fluglehrer, Flugstunden, Prüfungsgebühren) betragen ca. <strong>11.500 EUR / 4.500.000 HUF</strong>.",
         storyP3: "Ich fange bei Null an und teile jede Vorbereitung, jede Lektion und jeden Meilenstein auf meinem YouTube-Kanal <strong>Airplane Fans</strong> mit euch!",
         supportHeading: "So kannst du meine Pilotenausbildung unterstützen",
-        supportSub: "Jeder Beitrag zählt! Klicke auf eine Option für eine schnelle Unterstützung:",
-        imp1: "~1 Liter Flugbenzin (AVGAS)",
-        imp2: "1 Minute Flugschulung",
-        imp3: "1 volle Flugstunde mit Fluglehrer",
-        cardBtn1: "Unterstützen mit ~3 EUR ✈️",
-        cardBtn2: "Unterstützen mit ~4 EUR ⏱️",
-        cardBtn3: "1 Flugstunde finanzieren 👨‍✈️",
-        localHeading: "Inlandsüberweisung (Ungarn)",
+        supportSub: "100 % deiner Unterstützung gehen ohne Plattformgebühren per Banküberweisung direkt an mich:",
+        amt1: "1.000 HUF",
+        amt2: "2.000 HUF",
+        amt3: "100.000 HUF",
+        subtextTanfolyam: "Kurs",
+        badge: "Am beliebtesten",
+        localHeading: "🇭🇺 Inlandsüberweisung (HUF)",
+        intlHeading: "🌍 Internationale Überweisung (IBAN)",
         nameLabel1: "Name:",
+        bankLabel1: "Bank:",
         accLabel1: "Kontonummer:",
         msgLabel1: "Verwendungszweck:",
-        intlHeading: "Internationale / Revolut Überweisung",
         nameLabel2: "Name:",
-        bankLabel: "Bank:",
-        coffeeBtn: "☕ Spendier einen Kaffee / Freier Betrag",
+        bankLabel2: "Bank:",
+        msgLabel2: "Verwendungszweck:",
+        bmcBtn: "☕ Buy Me a Coffee (Kartenzahlung)",
         ytBtn: "▶️ Airplane Fans YouTube-Kanal",
         footerText: "© 2026 Airplane Fans. Alle Rechte vorbehalten."
     },
@@ -585,21 +578,22 @@ const translations = {
         storyP2: "La première grande étape est l'obtention de la licence <span class='highlight'>PPL (Private Pilot License)</span>. Le coût total (carburant, instructeur, heures de vol, examens) est d'environ <strong>11 500 EUR / 4 500 000 HUF</strong>.",
         storyP3: "Je pars de zéro et je partagerai chaque leçon, préparation et étape avec vous sur ma chaîne YouTube <strong>Airplane Fans</strong> !",
         supportHeading: "Comment soutenir ma formation de pilote",
-        supportSub: "Chaque don compte ! Cliquez sur une option ci-dessous :",
-        imp1: "~1 litre de carburant aviation (AVGAS)",
-        imp2: "1 minute de vol d'instruction",
-        imp3: "1 heure de vol complète avec instructeur",
-        cardBtn1: "Soutenir avec ~3 EUR ✈️",
-        cardBtn2: "Soutenir avec ~4 EUR ⏱️",
-        cardBtn3: "Financer 1 heure de vol 👨‍✈️",
-        localHeading: "Virement National (Hongrie)",
+        supportSub: "100 % de votre don va directement à mes heures de vol, sans frais, via virement bancaire :",
+        amt1: "1 000 HUF",
+        amt2: "2 000 HUF",
+        amt3: "100 000 HUF",
+        subtextTanfolyam: "cours",
+        badge: "Le plus populaire",
+        localHeading: "🇭🇺 Virement National (HUF)",
+        intlHeading: "🌍 Virement International (IBAN)",
         nameLabel1: "Nom :",
+        bankLabel1: "Banque :",
         accLabel1: "Numéro de compte :",
         msgLabel1: "Motif :",
-        intlHeading: "Virement International / Revolut",
         nameLabel2: "Nom :",
-        bankLabel: "Banque :",
-        coffeeBtn: "☕ Offrez-moi un café / Soutien libre",
+        bankLabel2: "Banque :",
+        msgLabel2: "Motif :",
+        bmcBtn: "☕ Buy Me a Coffee (Paiement par carte)",
         ytBtn: "▶️ Chaîne YouTube Airplane Fans",
         footerText: "© 2026 Airplane Fans. Tous droits réservés."
     },
@@ -614,21 +608,22 @@ const translations = {
         storyP2: "Il primo vero passo su questo percorso è l'ottenimento della licenza <span class='highlight'>PPL (Private Pilot License)</span>. Il costo totale (carburante, istruttore, ore di volo, esami) è di circa <strong>11.500 EUR / 4.500.000 HUF</strong>.",
         storyP3: "Parto da zero e condividerò con voi ogni lezione, studio e traguardo sul mio canale YouTube <strong>Airplane Fans</strong>!",
         supportHeading: "Come puoi sostenere il mio addestramento da pilota",
-        supportSub: "Ogni donazione conta! Clicca su un'opzione per donare subito:",
-        imp1: "~1 litro di benzina avio (AVGAS)",
-        imp2: "1 minuto di volo d'istruzione",
-        imp3: "1 ora di volo completa con istruttore",
-        cardBtn1: "Donazione ~3 EUR ✈️",
-        cardBtn2: "Donazione ~4 EUR ⏱️",
-        cardBtn3: "Finanzia 1 ora di volo 👨‍✈️",
-        localHeading: "Bonifico Nazionale (Ungheria)",
+        supportSub: "Il 100% della tua donazione va direttamente alle mie ore di volo tramite bonifico bancario, senza commissioni:",
+        amt1: "1.000 HUF",
+        amt2: "2.000 HUF",
+        amt3: "100.000 HUF",
+        subtextTanfolyam: "corso",
+        badge: "Più popolare",
+        localHeading: "🇭🇺 Bonifico Nazionale (HUF)",
+        intlHeading: "🌍 Bonifico Internazionale (IBAN)",
         nameLabel1: "Nome:",
+        bankLabel1: "Banca:",
         accLabel1: "Numero di conto:",
         msgLabel1: "Causale:",
-        intlHeading: "Bonifico Internazionale / Revolut",
         nameLabel2: "Nome:",
-        bankLabel: "Banca:",
-        coffeeBtn: "☕ Offrimi un caffè / Donazione libera",
+        bankLabel2: "Banca:",
+        msgLabel2: "Causale:",
+        bmcBtn: "☕ Buy Me a Coffee (Pagamento con carta)",
         ytBtn: "▶️ Canale YouTube Airplane Fans",
         footerText: "© 2026 Airplane Fans. Tutti i diritti riservati."
     },
@@ -643,21 +638,22 @@ const translations = {
         storyP2: "El primer gran paso es obtener la licencia <span class='highlight'>PPL (Private Pilot License)</span>. El costo total (combustible, instructor, horas de vuelo, exámenes) es de aprox. <strong>11.500 EUR / 4.500.000 HUF</strong>.",
         storyP3: "Empiezo desde cero y compartiré cada avance, clase y vuelo en mi canal de YouTube <strong>Airplane Fans</strong>.",
         supportHeading: "Cómo puedes apoyar mi entrenamiento de piloto",
-        supportSub: "¡Cada donación cuenta! Haz clic en una opción para apoyar:",
-        imp1: "~1 litro de gasolina de aviación (AVGAS)",
-        imp2: "1 minuto de vuelo de instrucción",
-        imp3: "1 hora de vuelo completa con instructor",
-        cardBtn1: "Apoyar con ~3 EUR ✈️",
-        cardBtn2: "Apoyar con ~4 EUR ⏱️",
-        cardBtn3: "Financiar 1 hora de vuelo 👨‍✈️",
-        localHeading: "Transferencia Nacional (Hungría)",
+        supportSub: "El 100% de tu donación va directamente a mis horas de vuelo por transferencia bancaria, sin comisiones:",
+        amt1: "1.000 HUF",
+        amt2: "2.000 HUF",
+        amt3: "100.000 HUF",
+        subtextTanfolyam: "curso",
+        badge: "Más popular",
+        localHeading: "🇭🇺 Transferencia Nacional (HUF)",
+        intlHeading: "🌍 Transferencia Internacional (IBAN)",
         nameLabel1: "Nombre:",
+        bankLabel1: "Banco:",
         accLabel1: "Número de cuenta:",
         msgLabel1: "Concepto:",
-        intlHeading: "Transferencia Internacional / Revolut",
         nameLabel2: "Nombre:",
-        bankLabel: "Banco:",
-        coffeeBtn: "☕ Invítame a un café / Donación libre",
+        bankLabel2: "Banco:",
+        msgLabel2: "Concepto:",
+        bmcBtn: "☕ Buy Me a Coffee (Pago con tarjeta)",
         ytBtn: "▶️ Canal de YouTube Airplane Fans",
         footerText: "© 2026 Airplane Fans. Todos los derechos reservados."
     },
@@ -672,21 +668,22 @@ const translations = {
         storyP2: "Det första stora steget på vägen är att ta ett <span class='highlight'>PPL (Private Pilot License)</span>. Den totala kostnaden (bränsle, instruktör, flygtimmar, avgifter) är ca <strong>11 500 EUR / 4 500 000 HUF</strong>.",
         storyP3: "Jag börjar från noll och kommer att dela varje lektion, förberedelse och framsteg med er på min YouTube-kanal <strong>Airplane Fans</strong>!",
         supportHeading: "Så kan du stödja min pilotutbildning",
-        supportSub: "Varje bidrag räknas! Klicka på ett alternativ för att stödja direkt:",
-        imp1: "~1 liter flygbränsle (AVGAS)",
-        imp2: "1 minuts skolflygning",
-        imp3: "1 hel flygtimme med instruktör",
-        cardBtn1: "Stöd med ~3 EUR ✈️",
-        cardBtn2: "Stöd med ~4 EUR ⏱️",
-        cardBtn3: "Finansiera 1 flygtimme 👨‍✈️",
-        localHeading: "Inhemsk Överföring (Ungern)",
+        supportSub: "100 % av ditt bidrag går direkt till mina flygtimmar via banköverföring utan avgifter:",
+        amt1: "1 000 HUF",
+        amt2: "2 000 HUF",
+        amt3: "100 000 HUF",
+        subtextTanfolyam: "kurs",
+        badge: "Populärast",
+        localHeading: "🇭🇺 Inhemsk Överföring (HUF)",
+        intlHeading: "🌍 Internationell Överföring (IBAN)",
         nameLabel1: "Namn:",
+        bankLabel1: "Bank:",
         accLabel1: "Kontonummer:",
         msgLabel1: "Meddelande:",
-        intlHeading: "Internationell / Revolut-överföring",
         nameLabel2: "Namn:",
-        bankLabel: "Bank:",
-        coffeeBtn: "☕ Bjud på en kaffe / Valfritt belopp",
+        bankLabel2: "Bank:",
+        msgLabel2: "Meddelande:",
+        bmcBtn: "☕ Buy Me a Coffee (Kortbetalning)",
         ytBtn: "▶️ Airplane Fans YouTube-kanal",
         footerText: "© 2026 Airplane Fans. Alla rättigheter förbehållna."
     },
@@ -701,21 +698,22 @@ const translations = {
         storyP2: "Det første store steget er å ta et <span class='highlight'>PPL (Private Pilot License)</span>. Totalprisen (drivstoff, instruktør, flytimer, eksamensavgifter) er ca. <strong>11 500 EUR / 4 500 000 HUF</strong>.",
         storyP3: "Jeg starter fra null og vil dele hver leksjon, forberedelse og milepæl med dere på YouTube-kanalen min <strong>Airplane Fans</strong>!",
         supportHeading: "Slik kan du støtte pilotutdanningen min",
-        supportSub: "Hvert bidrag teller! Klikk på et alternativ nedenfor:",
-        imp1: "~1 liter flydrivstoff (AVGAS)",
-        imp2: "1 minutt skoleflygning",
-        imp3: "1 hel flytime med instruktør",
-        cardBtn1: "Støtt med ~3 EUR ✈️",
-        cardBtn2: "Støtt med ~4 EUR ⏱️",
-        cardBtn3: "Finansier 1 flytime 👨‍✈️",
-        localHeading: "Innenlandsk Overføring (Ungarn)",
+        supportSub: "100 % av støtten din går direkte til flytimene mine via bankoverføring uten gebyrer:",
+        amt1: "1 000 HUF",
+        amt2: "2 000 HUF",
+        amt3: "100 000 HUF",
+        subtextTanfolyam: "kurs",
+        badge: "Mest populær",
+        localHeading: "🇭🇺 Innenlands Overføring (HUF)",
+        intlHeading: "🌍 Internasjonal Overføring (IBAN)",
         nameLabel1: "Navn:",
+        bankLabel1: "Bank:",
         accLabel1: "Kontonummer:",
         msgLabel1: "Melding:",
-        intlHeading: "Internasjonal / Revolut-overføring",
         nameLabel2: "Navn:",
-        bankLabel: "Bank:",
-        coffeeBtn: "☕ Kjøp en kaffe / Valgfritt beløp",
+        bankLabel2: "Bank:",
+        msgLabel2: "Melding:",
+        bmcBtn: "☕ Buy Me a Coffee (Kortbetalning)",
         ytBtn: "▶️ Airplane Fans YouTube-kanal",
         footerText: "© 2026 Airplane Fans. Alle rettigheter forbeholdt."
     },
@@ -730,21 +728,22 @@ const translations = {
         storyP2: "Pierwszym wielkim krokiem jest zdobycie licencji <span class='highlight'>PPL (Private Pilot License)</span>. Całkowity koszt (paliwo, instruktor, godziny lotu, egzaminy) to ok. <strong>11 500 EUR / 4 500 000 HUF</strong>.",
         storyP3: "Zaczynam od zera i będę dzielił się z Wami każdą lekcją, przygotowaniami i sukcesami na moim kanale YouTube <strong>Airplane Fans</strong>!",
         supportHeading: "Jak możesz wesprzeć moje szkolenie lotnicze",
-        supportSub: "Każdy datek się liczy! Kliknij opcję poniżej, aby wesprzeć:",
-        imp1: "~1 litr paliwa lotniczego (AVGAS)",
-        imp2: "1 minuta szkolenia lotniczego",
-        imp3: "1 pełna godzina lotu z instruktorem",
-        cardBtn1: "Wspomóż kwotą ~3 EUR ✈️",
-        cardBtn2: "Wspomóż kwotą ~4 EUR ⏱️",
-        cardBtn3: "Sfinansuj 1 godzinę lotu 👨‍✈️",
-        localHeading: "Przelew Krajowy (Węgry)",
+        supportSub: "100% Twojego wsparcia trafia bezpośrednio na moje godziny lotu przelewem bankowym, bez prowizji:",
+        amt1: "1 000 HUF",
+        amt2: "2 000 HUF",
+        amt3: "100 000 HUF",
+        subtextTanfolyam: "kurs",
+        badge: "Najpopularniejsze",
+        localHeading: "🇭🇺 Przelew Krajowy (HUF)",
+        intlHeading: "🌍 Przelew Międzynarodowy (IBAN)",
         nameLabel1: "Imię i nazwisko:",
+        bankLabel1: "Bank:",
         accLabel1: "Numer konta:",
         msgLabel1: "Tytuł przelewu:",
-        intlHeading: "Przelew Międzynarodowy / Revolut",
         nameLabel2: "Imię i nazwisko:",
-        bankLabel: "Bank:",
-        coffeeBtn: "☕ Postaw kawę / Dowolna kwota",
+        bankLabel2: "Bank:",
+        msgLabel2: "Tytuł przelewu:",
+        bmcBtn: "☕ Buy Me a Coffee (Płatność kartą)",
         ytBtn: "▶️ Kanał YouTube Airplane Fans",
         footerText: "© 2026 Airplane Fans. Wszelkie prawa zastrzeżone."
     },
@@ -759,21 +758,22 @@ const translations = {
         storyP2: "这条道路上的第一个重大里程碑是获得 <span class='highlight'>PPL（私人飞行员执照）</span>。总费用（燃油、教练费、飞行时数、考试费）约为 <strong>11,500 欧元 / 4,500,000 福林</strong>。",
         storyP3: "我从零开始，会在我的YouTube频道 <strong>Airplane Fans</strong> 上与大家分享每一次的学习、准备和进步！",
         supportHeading: "如何支持我的飞行员培训",
-        supportSub: "每一份支持都很有意义！点击下方选项即可直接赞助：",
-        imp1: "约1升航空汽油 (AVGAS)",
-        imp2: "1分钟飞行训练时间",
-        imp3: "1小时带教飞行时间",
-        cardBtn1: "赞助 ~3 欧元 ✈️",
-        cardBtn2: "赞助 ~4 欧元 ⏱️",
-        cardBtn3: "资助1小时飞行 👨‍✈️",
-        localHeading: "匈牙利本地转账",
+        supportSub: "您的赞助100%通过银行转账直接用于我的飞行时数，无平台手续费：",
+        amt1: "1,000 福林",
+        amt2: "2,000 福林",
+        amt3: "100,000 福林",
+        subtextTanfolyam: "课程",
+        badge: "最受欢迎",
+        localHeading: "🇭🇺 本地转账 (HUF)",
+        intlHeading: "🌍 国际转账 (IBAN)",
         nameLabel1: "姓名：",
+        bankLabel1: "银行：",
         accLabel1: "账号：",
         msgLabel1: "附言：",
-        intlHeading: "国际 / Revolut 转账",
         nameLabel2: "姓名：",
-        bankLabel: "银行：",
-        coffeeBtn: "☕ 请我喝杯咖啡 / 自定义金额",
+        bankLabel2: "银行：",
+        msgLabel2: "附言：",
+        bmcBtn: "☕ Buy Me a Coffee (刷卡付款)",
         ytBtn: "▶️ 关注 Airplane Fans 频道！",
         footerText: "© 2026 Airplane Fans. 保留所有权利。"
     }
