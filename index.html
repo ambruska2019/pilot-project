@@ -163,7 +163,7 @@
             font-weight: 600;
         }
 
-        /* Támogatók listája (Wall of Fame - Javítva, nem gomb hatású) */
+        /* Támogatók listája (Wall of Fame) */
         .supporter-list {
             display: flex;
             flex-wrap: wrap;
@@ -181,7 +181,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            cursor: default; /* Biztosítja, hogy ne mutasson kéz-kurzort */
+            cursor: default;
         }
 
         /* Banki utalás blokk */
@@ -341,12 +341,11 @@
         </p>
     </div>
 
-    <!-- Dicsőségfal (Javítva: már tisztán információs mező, nem gomb jellegű) -->
+    <!-- Dicsőségfal -->
     <div class="card">
         <h2 style="color: #48cae4; font-size: 1.2rem; margin-bottom: 10px;" id="wallOfFameHeading">🌟 Külön Köszönet a Támogatóknak!</h2>
         <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px;" id="wallOfFameSub">Itt tüntetem fel azokat, akik hozzájárultak a pilótaképzésemhez:</p>
         <div class="supporter-list">
-            <!-- Ide írhatod be majd a támogatók nevét, pl: -->
             <span class="supporter-badge">István, Julianna</span>
         </div>
     </div>
@@ -675,10 +674,10 @@ const translations = {
         goalSub: "Neste delmål: Teoretiske eksamener og avgifter for de første flytimene.",
         storyHeading: "Min Historie & Min Drøm",
         storyP1: "Hei alle sammen! Jeg er 14 år gammel og flyging er livet mitt. Min drøm er å sitte i cockpiten på en <span class='highlight'>Airbus A350</span>.",
-        storyP2: "Det første store steget er å få et <span class='highlight'>PPL</span> på ca. <strong>4 500 000 HUF</strong>.",
-        storyP3: "Jeg starter fra scratch og deler alt på YouTube-kanalen min <strong>Airplane Fans</strong>!",
+        storyP2: "Det første store steget er å ta et <span class='highlight'>PPL</span> på ca. <strong>4 500 000 HUF</strong>.",
+        storyP3: "Jeg starter fra null og deler alt på YouTube-kanalen min <strong>Airplane Fans</strong>!",
         wallOfFameHeading: "🌟 En Stor Takk til Støttespillerne!",
-        wallOfFameSub: "Her lister idiom opp de som har bidratt til pilotutdanningen min:",
+        wallOfFameSub: "Her lister jeg opp de som har bidratt til pilotutdanningen min:",
         supportHeading: "Hvordan du kan støtte min pilotutdanning",
         supportSub: "100 % av donasjonen din går direkte til flytimene mine via bankoverføring uten gebyrer:",
         localHeading: "🇭🇺 Nasjonal Overføring (HUF)",
@@ -701,11 +700,11 @@ const translations = {
         goalSub: "Kolejny kamień milowy: Egzaminy teoretyczne i opłaty za pierwsze godziny lotu.",
         storyHeading: "Moja historia i marzenie",
         storyP1: "Cześć wszystkim! Mam 14 lat, a awiacja to moje życie. Moim marzeniem jest usiąść w kokpicie <span class='highlight'>Airbusa A350</span>.",
-        storyP2: "Pierwszym krokiem jest uzyskanie licencji <span class='highlight'>PPL</span> za ok. <strong>4 500 000 HUF</strong>.",
-        storyP3: "Zaczynam od zera i dzielę się wszystkim na kanale YouTube <strong>Airplane Fans</strong>!",
+        storyP2: "Pierwszym wielkim krokiem jest uzyskanie licencji <span class='highlight'>PPL</span> o koszcie ok. <strong>4 500 000 HUF</strong>.",
+        storyP3: "Zaczynam od zera i dzielę się wszystkim na moim kanale YouTube <strong>Airplane Fans</strong>!",
         wallOfFameHeading: "🌟 Specjalne Podziękowania dla Darczyńców!",
-        wallOfFameSub: "Tutaj wymieniam osoby, które wsparły moje szkolenie:",
-        supportHeading: "Jak możesz wesprzek moje szkolenie pilota",
+        wallOfFameSub: "Tutaj wymieniam osoby, które wsparły moje szkolenie pilota:",
+        supportHeading: "Jak możesz wesprzeć moje szkolenie pilota",
         supportSub: "100% Twojej darowizny trafia bezpośrednio na moje godziny lotu przelewem bankowym, bez prowizji:",
         localHeading: "🇭🇺 Przelew Krajowy (HUF)",
         intlHeading: "🌍 Przelew Międzynarodowy (IBAN)",
@@ -726,11 +725,11 @@ const translations = {
         goalTitle: "目标：PPL 私人飞行员课程（45小时 + 理论）",
         goalSub: "下一个里程碑：理论考试和初步飞行训练费用。",
         storyHeading: "我的故事与梦想",
-        storyP1: "大家好！我今年14岁，航空是我的生命。我的梦想是坐在<span class='highlight'>空中客车 A350</span> 的驾驶舱里。",
-        storyP2: "第一个重大里程碑是获得 <span class='highlight'>PPL</span>，费用约为 <strong>4,500,000 福林</strong>。",
-        storyP3: "我从零开始，我将在 YouTube 频道 <strong>Airplane Fans</strong> 上分享一切！",
-        wallOfFameHeading: "🌟 特别鸣谢支持者！",
-        wallOfFameSub: "在此列出所有为我的飞行员培训做出贡献的人：",
+        storyP1: "大家好！我今年14岁，航空是我的生命。我最大的梦想是坐在<span class='highlight'>空中客车 A350</span> 的驾驶舱里。",
+        storyP2: "这条道路上的第一个重大里程碑是获得 <span class='highlight'>PPL</span>，总费用约为 <strong>4,500,000 福林</strong>。",
+        storyP3: "我从零开始，我将在我的 YouTube 频道 <strong>Airplane Fans</strong> 上与大家分享每一个里程碑！",
+        wallOfFameHeading: "🌟 特别感谢支持者！",
+        wallOfFameSub: "这里列出所有为我的飞行员培训做出贡献的人：",
         supportHeading: "如何支持我的飞行员培训",
         supportSub: "通过银行转账，您的捐款100%直接用于我的飞行小时，无平台手续费：",
         localHeading: "🇭🇺 国内转账 (HUF)",
